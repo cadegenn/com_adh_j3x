@@ -1,7 +1,7 @@
-com_adh_j25
+com_adh_j3x
 ===========
 
-Joomla! 2.5 component to manage people within an association
+Joomla! 3.x component to manage people within an association
 
 Features
 --------
