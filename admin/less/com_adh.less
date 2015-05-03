@@ -1,0 +1,123 @@
+/**
+ * @package		com_adh_j25
+ * @subpackage	com_adh.less
+ * @brief		less source for css admin part of adherents management
+ * @copyright	Copyright (C) 2014 - 2014 DEGENNES Charles-Antoine <cadegenn@gmail.com>
+ * @license		Affero GNU General Public License version 3 or later; see LICENSE.txt
+ * 
+ * @TODO		factoriser au maximum les blocs
+ */
+
+/** 
+ *  Copyright (C) 2012-2014 DEGENNES Charles-Antoine <cadegenn@gmail.com>
+ *  com_adh is a joomla! 2.5 component [http://www.volontairesnature.org]
+ *  
+ *  This file is part of com_adh.
+ * 
+ *     com_adh is free software: you can redistribute it and/or modify
+ *     it under the terms of the Affero GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ * 
+ *     com_adh is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     Affero GNU General Public License for more details.
+ * 
+ *     You should have received a copy of the Affero GNU General Public License
+ *     along with com_adh.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ */
+
+root { 
+    display: block;
+}
+
+.icon-32-import {
+	background-image: url(../images/ico-128x128/import-icon.png);
+	background-size: 32px;
+}
+.icon-48-categories, .icon-48-adh {
+	background-image: url(../images/ico-48x48/groupe.png);
+}
+.icon-32-adherent-add {
+	background-image: url(../images/ico-32x32/actions-list-add-user-male-icon.png);
+}
+.icon-32-group-add {
+	background-image: url(../images/ico-32x32/group-add-icon.png);
+}
+.icon-32-cotisation-add {
+	background-image: url(../images/ico-32x32/coin-add-icon.png);
+}
+.icon-32-merge {
+	background-image: url(../images/ico-32x32/merge.png);
+}
+
+.icon-user() {
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+.icon-structure {
+	background-image : url(../images/ico-16x16/building.png);
+	.icon-user();
+}
+.icon-user-male {
+	background-image: url(../images/ico-16x16/user.png);
+	.icon-user();
+}
+.icon-user-female {
+	background-image: url(../images/ico-16x16/user_female.png);
+	.icon-user();
+}
+.adherent_status a.jgrid span.trash {
+	background-image: url(../images/ico-16x16/skull-and-crossbones-2.png);
+}
+
+.blue {
+	color: navy;
+}
+
+.fltrt > ul {
+	display: table-row;
+	margin:0;
+	padding:0;
+}
+.fltrt > ul > li {
+	display: table-cell;
+	border-left: honeyDew solid 1px;
+	border-right: honeyDew solid 1px;
+	margin:0;
+	padding:0;
+}
+.fltrt > ul > li > a {
+	display: block;
+	padding: 0 8px;
+	font-family: "Courier New", Courier, monospace ! important;
+	font-weight: bold;
+	font-size: 14px;
+}
+.fltrt > ul > li > a:hover {
+	background-color: white;
+	color: navy;
+	text-decoration: none;
+}
+.fltrt > ul > li > a.selected {
+	background-color: white;
+	color: orange;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.bold {
+	font-weight: bold;
+}
+
+.clrlft {
+	clear: left;
+}
+
+table.dashboard {
+	width: 100%;
+	tbody {
+		vertical-align: top;
+	}
+}
