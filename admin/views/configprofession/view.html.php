@@ -9,7 +9,7 @@ jimport('joomla.application.component.view');
  * profession View
  * 
  */
-class adhViewConfigProfession extends JView
+class adhViewConfigProfession extends JViewLegacy
 {
     /**
      * display method of Hello view

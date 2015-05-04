@@ -8,7 +8,7 @@ jimport('joomla.application.component.view');
 /**
  * adh View
  */
-class adhViewConfigProfessions extends JView
+class adhViewConfigProfessions extends JViewLegacy
 {
 	/**
 	 * adhs view display method

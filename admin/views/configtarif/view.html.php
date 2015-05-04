@@ -9,7 +9,7 @@ jimport('joomla.application.component.view');
  * tarif View
  * 
  */
-class adhViewConfigTarif extends JView
+class adhViewConfigTarif extends JViewLegacy
 {
     /**
      * display method of Hello view

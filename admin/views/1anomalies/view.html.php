@@ -41,7 +41,7 @@ JLoader::register('AdhToolBarHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/
 /**
  * adh View
  */
-class adhView1anomalies extends JView
+class adhView1anomalies extends JViewLegacy
 {
 	/**
 	 * adherents view display method

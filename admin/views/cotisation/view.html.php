@@ -40,7 +40,7 @@ jimport('joomla.application.component.view');
  * cotisation View
  * 
  */
-class adhViewCotisation extends JView
+class adhViewCotisation extends JViewLegacy
 {
     /**
      * display method of Hello view

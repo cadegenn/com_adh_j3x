@@ -42,7 +42,7 @@ JLoader::register('AdhToolBarHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/
  * 2anomalie View
  * 
  */
-class adhView2anomalie extends JView
+class adhView2anomalie extends JViewLegacy
 {
 	/**
 	 * $form1	object	form for user 1

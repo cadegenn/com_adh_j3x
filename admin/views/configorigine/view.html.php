@@ -9,7 +9,7 @@ jimport('joomla.application.component.view');
  * origine View
  * 
  */
-class adhViewConfigOrigine extends JView
+class adhViewConfigOrigine extends JViewLegacy
 {
     /**
      * display method of Hello view

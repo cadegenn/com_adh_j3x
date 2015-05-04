@@ -39,7 +39,7 @@ jimport('joomla.application.component.view');
 /**
  * adh View
  */
-class adhViewAdherents extends JView
+class adhViewAdherents extends JViewLegacy
 {
 	/**
 	 * adherents view display method
