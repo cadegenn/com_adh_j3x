@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="2.5.0" method="upgrade">
+<extension type="component" version="3.4.0" method="upgrade">
  
 	<name>COM_ADH</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>23 October 2012</creationDate>
+	<creationDate>03 May 2015</creationDate>
 	<author>Charles-Antoine DEGENNES</author>
 	<authorEmail>cadegenn@gmail.com</authorEmail>
 	<authorUrl></authorUrl>
-	<copyright>Copyright (C) 2012 - 2015 Volontaires Pour la Nature</copyright>
+	<copyright>Copyright (C) 2015 - 2015 Volontaires Pour la Nature</copyright>
 	<license>AGPL v3</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.47</version>
+	<version>0.0.1</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_ADH_COMPONENT_DESCRIPTION</description>
 	
