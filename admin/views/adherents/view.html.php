@@ -85,14 +85,14 @@ class adhViewAdherents extends JViewLegacy
 	{
 		// voir d'autres boutons dans /administrator/includes/toolbar.php
 		JToolBarHelper::title(JText::_('COM_ADH').' : '.JText::_('COM_ADH_SUBMENU_ADHERENTS'), 'adh');
-		JToolBarHelper::addNewX('adherent.add');
-		JToolBarHelper::editListX('adherent.edit');
+		JToolBarHelper::addNew('adherent.add');
+		JToolBarHelper::editList('adherent.edit');
 		JToolBarHelper::divider();
 		JToolBarHelper::publishList('adherents.publish');
 		JToolBarHelper::unpublishList('adherents.unpublish');
 		JToolBarHelper::divider();
 		JToolBarHelper::archiveList('adherents.archive');
-		JToolBarHelper::deleteListX(JText::_('COM_ADH_AREYOUSURE'),'adherents.delete');
+		JToolBarHelper::deleteList(JText::_('COM_ADH_AREYOUSURE'),'adherents.delete');
 		JToolBarHelper::divider();
 		JToolBarHelper::preferences('com_adh');
 	}
