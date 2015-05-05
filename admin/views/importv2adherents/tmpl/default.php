@@ -25,7 +25,7 @@ JHtml::_('behavior.tooltip');
 			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
 			<input type="checkbox" id="cb_notimported_search" name="notimported_search" onclick="this.form.submit();" <?php echo $this->escape($this->state->get('notimported.search')); ?> /> <label for="cb_notimported_search"><?php echo JText::_('COM_ADH_SHOW_NOT_IMPORTED'); ?></label>
 		</div>
-		<div class="filter-select fltrt">
+		<div class="filter-select pull-right">
 			<input type ="hidden" name="letter_search" id="letter_search" value="<?php echo $this->escape($this->state->get('letter.search')); ?>" />
 			<ul><?php
 			$alphabet = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');

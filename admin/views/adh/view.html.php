@@ -42,7 +42,7 @@ JLoader::register('AdhToolBarHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/
 /**
  * adh View
  */
-class adhViewadh extends JViewLegacyLegacy
+class adhViewadh extends JViewLegacy
 {
 	/**
 	 * adhs view display method

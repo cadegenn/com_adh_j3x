@@ -15,7 +15,7 @@ JLoader::register('ADHControls', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/contr
 			<!--<input type="hidden" name="year_search" id="year_search" value="<?php echo $this->escape($this->state->get('year.search')); ?>" title="<?php echo JText::_('COM_ADH_FILTER_YEAR_DESC'); ?>" />-->
 			<?php echo ADHcontrols::selectYearsFromTable("#__adh_cotisations", "date_debut_cotiz", "DESC", $this->state->get('year.search'), "year_search"); ?>			<button type="button" onclick="document.id('year_search').selectedIndex=0;this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
 		</div>
-		<div class="cp-select fltrt">
+		<div class="cp-select pull-right">
 			<label class="cp-search-lbl" for="cp_search"><?php echo JText::_('COM_ADH_DEPARTEMENT_LABEL'); ?>&nbsp;</label>
 			<select name='cp_search' id='cp_search' onchange='this.form.submit();'>
 				<option value=""></option>

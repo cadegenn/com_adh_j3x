@@ -20,7 +20,7 @@ JLoader::register('ADHControls', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/contr
 			<label class="with_email-search-lbl" for="with_email_search"><?php echo JText::_('COM_ADH_HIDE_ADH_WITH_EMAILS_LABEL'); ?>&nbsp;</label>
 			<pre><?php //var_dump($this->state); ?></pre>
 		</div>
-		<div class="cp-select fltrt">
+		<div class="cp-select pull-right">
 			<label class="cp-search-lbl" for="cp_search"><?php echo JText::_('COM_ADH_DEPARTEMENT_LABEL'); ?>&nbsp;</label>
 			<select name='cp_search' id='cp_search' onchange='this.form.submit();'>
 				<option value=""></option>

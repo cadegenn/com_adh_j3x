@@ -25,7 +25,7 @@ JLoader::register('ADHdb', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/db.php');
 			</div>
 		</fieldset>
 	</div>
-	<div class='width-40 fltrt'>
+	<div class='width-40 pull-right'>
 		<?php echo JHtml::_('sliders.start', 'content-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 			<?php echo JHtml::_('sliders.panel', JText::_('COM_ADH_FIELDSET_PUBLISHING'), 'meta-options'); ?>
 				<fieldset class="panelform">

@@ -55,7 +55,7 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 			<button type="submit" class="btn"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
 			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
 		</div>
-		<div class="filter-select fltrt">
+		<div class="filter-select pull-right">
 			<input type ="hidden" name="letter_search" id="letter_search" value="<?php echo $this->escape($this->state->get('letter.search')); ?>" />
 			<ul><?php
 			$alphabet = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
@@ -71,17 +71,17 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 			<label class="pays-search-lbl" for="anomalie_type"><?php echo JText::_('COM_ADH_ANOMALIE_TYPE_LABEL'); ?>&nbsp;</label>
 			<?php echo ADHcontrols::buildSelectAdhTypesAnomalies($this->state->get('anomalies.search')); ?>
 		</div>
-		<div class="pays-select fltrt">
+		<div class="pays-select pull-right">
 			<label class="pays-search-lbl" for="pays_search"><?php echo JText::_('COM_ADH_PAYS_LABEL'); ?>&nbsp;</label>
 			<?php echo ADHcontrols::selectColumnFromTable("#__adh_adherents", "pays", "ASC", $this->state->get('pays.search')); ?>
 			<!--<button type="button" onclick="document.id('pays_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>-->
 		</div>
-		<div class="ville-select fltrt">
+		<div class="ville-select pull-right">
 			<label class="ville-search-lbl" for="ville_search"><?php echo JText::_('COM_ADH_VILLE_LABEL'); ?>&nbsp;</label>
 			<?php echo ADHcontrols::selectColumnFromTable("#__adh_adherents", "ville", "ASC", $this->state->get('ville.search')); ?>
 			<!--<button type="button" onclick="document.id('ville_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>-->
 		</div>
-		<div class="cp-select fltrt">
+		<div class="cp-select pull-right">
 			<label class="cp-search-lbl" for="cp_search"><?php echo JText::_('COM_ADH_DEPARTEMENT_LABEL'); ?>&nbsp;</label>
 			<select name='cp_search' id='cp_search' onchange='this.form.submit();'>
 				<option value=""></option>

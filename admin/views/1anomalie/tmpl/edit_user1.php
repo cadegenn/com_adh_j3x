@@ -53,7 +53,7 @@ $params = JComponentHelper::getParams('com_adh');
 		<div class="clr"></div>
 		<fieldset class="adminform" id="fs_detailsUser1">
 			<legend><?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS' ); ?> <small>(<?php echo (int) $this->user1->id; ?>)</small></legend>
-			<a class="fltrt" href="#none" onclick="javascript:adh_details_copy('fs_detailsUser1', 'fs_detailsUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
+			<a class="pull-right" href="#none" onclick="javascript:adh_details_copy('fs_detailsUser1', 'fs_detailsUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
 			<div class="clr"></div>
 			<div class="tr">
 				<div class="tth"><?php echo $this->form1->getField("titre")->label; ?></div>
@@ -109,7 +109,7 @@ $params = JComponentHelper::getParams('com_adh');
 
 		<fieldset class="adminform" id="fs_publishUser1">
 			<legend><?php echo JText::_( 'COM_ADH_FIELDSET_PUBLISHING' ); ?></legend>
-			<a class="fltrt" href="#none" onclick="javascript:adh_details_copy('fs_publishUser1', 'fs_publishUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
+			<a class="pull-right" href="#none" onclick="javascript:adh_details_copy('fs_publishUser1', 'fs_publishUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
 			<ul class="adminformlist">
 				<?php foreach($this->form1->getFieldset('user_publish_options') as $field) :?>
 					<li><?php echo $field->label; ?>
@@ -120,7 +120,7 @@ $params = JComponentHelper::getParams('com_adh');
 
 		<fieldset class="adminform" id="fs_optionsUser1">
 			<legend><?php echo JText::_( 'COM_ADH_OPTIONS' ); ?></legend>
-			<a class="fltrt" href="#none" onclick="javascript:adh_details_copy('fs_optionsUser1', 'fs_optionsUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
+			<a class="pull-right" href="#none" onclick="javascript:adh_details_copy('fs_optionsUser1', 'fs_optionsUser2', 'jform1', 'jform2');"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
 			<ul class="adminformlist">
 				<?php foreach($this->form1->getFieldset('user_options') as $field) :?>
 					<li><?php echo $field->label; ?>
@@ -143,7 +143,7 @@ $params = JComponentHelper::getParams('com_adh');
 		<fieldset class="adminform" id="fs_cotizUser1">
 			<legend><?php echo JText::_( 'COM_ADH_FIELDSET_COTISATIONS' ); ?></legend>
 			<input type="hidden" id="adherent_id" name="adherent_id" value="<?php echo $this->user1->id; ?>">
-			<a class="fltrt" href="#none" onclick="javascript:Joomla.submitform('1anomalie.moveCotiz', document.getElementById('adminFormUser1Cotiz'));"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
+			<a class="pull-right" href="#none" onclick="javascript:Joomla.submitform('1anomalie.moveCotiz', document.getElementById('adminFormUser1Cotiz'));"><img src="<?php echo JURI::base(); ?>components/com_adh/images/ico-32x32/go-next-5.png" alt="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" title="<?php echo JText::_( 'COM_ADH_ADHERENT_DETAILS_COPY_TO_RIGHT_SIDE' ); ?>" /></a>
 			<label><a href='<?php echo JRoute::_('index.php?option=com_adh&view=cotisation&layout=edit&id=0&adherent_id='.$this->user1->id); ?>'><?php echo JText::_('COM_ADH_FIELDSET_COTISATIONS_NEW'); ?></a></label>
 			<ul id="ul_cotiz_<?php echo $this->user1->id; ?>" class="adminformlist">
 				<?php 
@@ -159,7 +159,7 @@ $params = JComponentHelper::getParams('com_adh');
 							&nbsp;<?php echo date('Y',strtotime($cotiz->date_debut_cotiz)); ?>
 						</label>
 						<input id="cotiz<?php echo $cotiz->id; ?>_prix" name="cotiz<?php echo $cotiz->id; ?>[prix]" class='readonly hastip' readonly='readonly' value="<?php echo($cotiz->montant." ".$params->getValue('symbol')." ".JText::_('COM_ADH_FIELDSET_COTISATIONS_PAR')." ".$cotiz->mode_paiement); ?>" />
-						<ul class="jicons_cotiz_action fltrt">
+						<ul class="jicons_cotiz_action pull-right">
 							<li class="fltlft"><a href='<?php echo JRoute::_('index.php?option=com_adh&view=cotisation&layout=edit&id=' . $cotiz->id); ?>'><?php echo JText::_('JACTION_EDIT'); ?></a></li>
 							<li class="fltlft"><a href='<?php echo JRoute::_('index.php?option=com_adh&layout=edit&id='.(int) $this->user1->id.'&user1id='.(int) $this->user1->id.'&user2id='.(int) $this->form2->getField('id')->value.'&cotiz_id=' . $cotiz->id.'&task=1anomalie.deleteCotiz'); ?>'><?php echo JText::_('JACTION_DELETE'); ?></a></li>
 							<!--<li class="fltlft"><a href="#none" onclick="javascript:Joomla.submitform('1anomalie.deleteCotiz', document.getElementById('adminFormUser1Cotiz'));"><?php echo JText::_('JACTION_DELETE'); ?></a></li>-->

@@ -46,7 +46,7 @@ $params = JComponentHelper::getParams('com_adh');
 
 <form action="<?php echo JRoute::_('index.php?option=com_adh&layout=edit&id='.(int) $this->form2->getField('id')->value.'&user1id='.(int) $this->form1->getField('id')->value.'&user2id='.(int) $this->form2->getField('id')->value); ?>"
       method="post" name="adminForm" id="adminFormUser2">
-	<div class='width-50 fltrt'>
+	<div class='width-50 pull-right'>
 		<?php	$bar1 = JToolBar::getInstance('toolbar-user2');
 				echo $bar1->render();
 		?>
