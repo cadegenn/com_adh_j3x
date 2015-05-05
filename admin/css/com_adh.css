@@ -71,31 +71,31 @@ root {
 .blue {
   color: navy;
 }
-.fltrt > ul {
+.pull-right > ul {
   display: table-row;
   margin: 0;
   padding: 0;
 }
-.fltrt > ul > li {
+.pull-right > ul > li {
   display: table-cell;
   border-left: honeyDew solid 1px;
   border-right: honeyDew solid 1px;
   margin: 0;
   padding: 0;
 }
-.fltrt > ul > li > a {
+.pull-right > ul > li > a {
   display: block;
   padding: 0 8px;
   font-family: "Courier New", Courier, monospace ! important;
   font-weight: bold;
   font-size: 14px;
 }
-.fltrt > ul > li > a:hover {
+.pull-right > ul > li > a:hover {
   background-color: white;
   color: navy;
   text-decoration: none;
 }
-.fltrt > ul > li > a.selected {
+.pull-right > ul > li > a.selected {
   background-color: white;
   color: orange;
   text-decoration: none;
