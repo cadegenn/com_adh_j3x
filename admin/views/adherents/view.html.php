@@ -47,35 +47,37 @@ class adhViewAdherents extends JViewLegacy
 	 */
 	function display($tpl = null) 
 	{
-		// Get data from the model
-		$items = $this->get('Items');			// => admin/models/adherents.php
-		$total = $this->get('Total');			// JModelList::getTotal()
-		$pagination = $this->get('Pagination');
- 
-		// Check for errors.
-		if (count($errors = $this->get('Errors'))) 
+		if ($this->getLayout() !== 'modal')
 		{
-			JError::raiseError(500, implode('<br />', $errors));
+			// Ajouter le sous menu
+			AdhHelper::addSubmenu('adherents');	// => admin/helpers/adh.php
+		}
+
+		// Get data from the model
+		$this->items         = $this->get('Items');
+		$this->pagination    = $this->get('Pagination');
+		$this->state         = $this->get('State');
+		$this->authors       = $this->get('Authors');
+		$this->filterForm    = $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
+		$this->total		 = $this->get('Total');			// JModelList::getTotal()
+
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode("\n", $errors));
+
 			return false;
 		}
-		// Assign data to the view
-		$this->items = $items;
-		$this->total = $total;
-		$this->pagination = $pagination;
- 
-		// Set the toolbar
-		$this->addToolBar();
-		//Add the state... (http://docs.joomla.org/How_to_add_custom_filters_to_component_admin)
-		$this->state = $this->get('State');
-		
-		// Ajouter le sous menu
-		ADHHelper::addSubmenu('adherents');	// => admin/helpers/adh.php
-		
-		// Display the template
+
+		// We don't need toolbar in the modal window.
+		if ($this->getLayout() !== 'modal')
+		{
+			$this->addToolbar();
+			$this->sidebar = JHtmlSidebar::render();
+		}
+
 		parent::display($tpl);
-		
-		// Set the document
-		$this->setDocument();
 	}
 	
 	/**
@@ -107,6 +109,29 @@ class adhViewAdherents extends JViewLegacy
 		$document = JFactory::getDocument();
 		$document->setTitle(JText::_('COM_ADH_ADMINISTRATION'));
 	}
+	
+	/**
+	 * Returns an array of fields the table can be sorted by
+	 *
+	 * @return  array  Array containing the field name to sort by as the key and display text as value
+	 *
+	 * @since   3.0
+	 */
+	protected function getSortFields()
+	{
+		return array(
+			'a.ordering'     => JText::_('JGRID_HEADING_ORDERING'),
+			'LOWER(a.personne_morale)'        => JText::_('JSTATUS'),
+			'LOWER(a.nom)'        => JText::_('JGLOBAL_TITLE'),
+			'LOWER(a.prenom)' => JText::_('JCATEGORY'),
+			'a.email'   => JText::_('JGRID_HEADING_ACCESS'),
+			'LOWER(a.ville)'   => JText::_('JAUTHOR'),
+			'LOWER(a.pays)'       => JText::_('JGRID_HEADING_LANGUAGE'),
+			'a.published'      => JText::_('JDATE'),
+			'a.id'           => JText::_('JGRID_HEADING_ID'),
+		);
+	}
+
 }
 
 ?>
