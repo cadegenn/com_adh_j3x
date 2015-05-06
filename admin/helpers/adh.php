@@ -56,25 +56,33 @@ abstract class ADHHelper {
 	{
 		switch ($submenu) {
 			case 'adherents' :
-			case 'cotisations':	JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_ADHERENTS'), 'index.php?option=com_adh&view=adherents', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_COTISATIONS'), 'index.php?option=com_adh&view=cotisations', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_GROUPES'), 'index.php?option=com_adh&view=groupes', true);
+			case 'cotisations':	
+			case 'groupes' :	JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_ADHERENTS'), 'index.php?option=com_adh&view=adherents', $submenu == 'adherents');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_COTISATIONS'), 'index.php?option=com_adh&view=cotisations', $submenu == 'cotisations');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_GROUPES'), 'index.php?option=com_adh&view=groupes', $submenu == 'groupes');
 								break;
-			case 'extractions':	JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_EXTRACTIONS_EMAILS'), 'index.php?option=com_adh&view=extractEmails', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_EXTRACTIONS_ADDRESS'), 'index.php?option=com_adh&view=extractAddresses', true);
+			case 'extractions':	
+			case 'extractEmails' :
+			case 'extractAddresses' : 
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_EXTRACTIONS_EMAILS'), 'index.php?option=com_adh&view=extractEmails', $submenu == 'extractEmails');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_EXTRACTIONS_ADDRESS'), 'index.php?option=com_adh&view=extractAddresses', $submenu == 'extractAddresses');
 								break;
-			case 'config'	 :	JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_ORIGINES'), 'index.php?option=com_adh&view=configOrigines', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_PROFESSIONS'), 'index.php?option=com_adh&view=configProfessions', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_TARIFS'), 'index.php?option=com_adh&view=configTarifs', true);
+			case 'config'	 :	
+			case 'configOrigines' :
+			case 'configProfessions' : 
+			case 'configTarifs' :
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_ORIGINES'), 'index.php?option=com_adh&view=configOrigines', $submenu == 'configOrigines');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_PROFESSIONS'), 'index.php?option=com_adh&view=configProfessions', $submenu == 'configProfessions');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_CONFIG_TARIFS'), 'index.php?option=com_adh&view=configTarifs', $submenu == 'configTarifs');
 								break;
-			case 'import'	 :	JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_ADHERENTS'), 'index.php?option=com_adh&view=importV2Adherents', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_ORIGINES'), 'index.php?option=com_adh&view=importV2Origines', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_PROFESSIONS'), 'index.php?option=com_adh&view=importV2Professions', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_TARIFS'), 'index.php?option=com_adh&view=importV2Tarifs', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_COTISATIONS'), 'index.php?option=com_adh&view=importV2Cotisations', true);
-								break;
-			case 'anomalies' :	JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_ANOMALIES_1'), 'index.php?option=com_adh&view=1anomalies', true);
-								JSubMenuHelper::addEntry(JText::_('COM_ADH_SUBMENU_ANOMALIES_2'), 'index.php?option=com_adh&view=2anomalies', true);
+/*			case 'import'	 :	JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_ADHERENTS'), 'index.php?option=com_adh&view=importV2Adherents', true);
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_ORIGINES'), 'index.php?option=com_adh&view=importV2Origines', true);
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_PROFESSIONS'), 'index.php?option=com_adh&view=importV2Professions', true);
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_TARIFS'), 'index.php?option=com_adh&view=importV2Tarifs', true);
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_IMPORT_COTISATIONS'), 'index.php?option=com_adh&view=importV2Cotisations', true);
+								break;*/
+			case 'anomalies' :	JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_ANOMALIES_1'), 'index.php?option=com_adh&view=1anomalies', $submenu == '1anomalies');
+								JHtmlSidebar::addEntry(JText::_('COM_ADH_SUBMENU_ANOMALIES_2'), 'index.php?option=com_adh&view=2anomalies', $submenu == '2anomalies');
 								break;
 		}
 		// set some global property
