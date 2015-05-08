@@ -131,8 +131,7 @@
 	<fieldset name="user_options">
 		<field
 			name="imposable" type="radio"
-			label="COM_ADH_IMPOSABLE_LABEL"
-			description="COM_ADH_IMPOSABLE_DESC"
+			label="COM_ADH_IMPOSABLE_LABEL" description="COM_ADH_IMPOSABLE_DESC"
 			class="btn-group btn-group-yesno" default="0"
 		>
 			<option value="1">JYES</option>
@@ -140,8 +139,7 @@
 		</field>
 		<field
 			name="recv_newsletter" type="radio"
-			label="COM_ADH_NEWSLETTER_LABEL"
-			description="COM_ADH_NEWSLETTER_DESC"
+			label="COM_ADH_NEWSLETTER_LABEL" description="COM_ADH_NEWSLETTER_DESC"
 			class="btn-group btn-group-yesno" default="0"
 		>
 			<option value="1">JYES</option>
@@ -149,15 +147,14 @@
 		</field>
 		<field
 			name="recv_infos" type="radio"
-			label="COM_ADH_INFOS_LABEL"
-			description="COM_ADH_INFOS_DESC"
+			label="COM_ADH_INFOS_LABEL" description="COM_ADH_INFOS_DESC"
 			class="btn-group btn-group-yesno" default="0"
 		>
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
 	</fieldset>
-	<fieldset name="user_publish_options">
+	<fieldset name="publish_options">
 		<field name="published" type="list" label="JSTATUS"
 				description="JFIELD_PUBLISHED_DESC" class="chzn-color-state"
 				filter="intval" size="1" default="1"
@@ -169,26 +166,22 @@
 		</field>
 		<field
 			name="creation_date" type="calendar"
-			label="JGLOBAL_CREATED_DATE"
-			description="JGLOBAL_FIELD_CREATED_DESC"
+			label="JGLOBAL_CREATED_DATE" description="JGLOBAL_FIELD_CREATED_DESC"
 			class="date readonly" default=""
 		/>
 		<field
 			name="created_by" type="user"
-			label="JGLOBAL_FIELD_CREATED_BY_LABEL"
-			description="JGLOBAL_FIELD_CREATED_BY_DESC"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="JGLOBAL_FIELD_CREATED_BY_DESC"
 			readonly=""
 		/>
 		<field
 			name="modification_date" type="calendar"
-			label="JGLOBAL_FIELD_MODIFIED_LABEL"
-			description="JGLOBAL_FIELD_MODIFIED_DESC"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL" description="JGLOBAL_FIELD_MODIFIED_DESC"
 			class="date readonly" default=""
 		/>
 		<field
 			name="modified_by" type="user"
-			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
-			description="JGLOBAL_FIELD_MODIFIED_BY_DESC"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"	description="JGLOBAL_FIELD_MODIFIED_BY_DESC"
 			readonly=""
 		/>
 	</fieldset>

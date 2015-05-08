@@ -32,7 +32,11 @@
 
 // No direct access
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('behavior.tooltip');
+//JHtml::_('behavior.tooltip');
+JHtml::_('bootstrap.tooltip');
+JHtml::_('behavior.multiselect');
+// to get published drop-down colored by chosen.css
+JHtml::_('formbehavior.chosen', 'select');
 
 // Import library dependencies
 JLoader::register('ADHFunctions', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/functions.php');
@@ -52,33 +56,30 @@ $params = JComponentHelper::getParams('com_adh');
 	<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?>
 
 	<div class="form-horizontal">
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_ADH_ADHERENT', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_ADH_ADHERENT', true).'<small>'.$this->item->id.'</small>'); ?>
 		<div class="row-fluid">
 			<div class="span9">
-				<?php echo JLayoutHelper::render('adh.edit.global', $this); // => JPATH_COMPONENT_ADMINISTRATOR . '/layouts/adh/edit/global.php' ?>
+				<?php echo JLayoutHelper::render('adh.edit.adherent', $this); // => JPATH_COMPONENT_ADMINISTRATOR . '/layouts/adh/edit/adherent.php' ?>
 			</div>
 			<div class="span3">
 				<?php echo JHtml::_('sliders.start', 'content-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 					<?php echo JHtml::_('sliders.panel', JText::_('COM_ADH_FIELDSET_PUBLISHING'), 'meta-options'); ?>
-						<fieldset class="panelform">
-							<ul class="adminformlist">
+						<?php echo JLayoutHelper::render('adh.edit.publish_options', $this); // => JPATH_COMPONENT_ADMINISTRATOR . '/layouts/adh/edit/publish_options.php' ?>						<fieldset class="panelform">
+							<!-- <ul class="adminformlist">
 								<?php foreach($this->form->getFieldset('user_publish_options') as $field) :?>
 									<li><?php echo $field->label; ?>
 									<?php echo $field->input; ?></li>
 								<?php endforeach; ?>
-							</ul>
+							</ul>-->
 						</fieldset>
 				<?php echo JHtml::_('sliders.end'); ?>
 
 				<?php echo JHtml::_('sliders.start', 'content-sliders-'.$this->item->id, array('useCookie'=>1)); ?>
 					<?php echo JHtml::_('sliders.panel', JText::_('COM_ADH_OPTIONS'), 'meta-options'); ?>
-						<fieldset class="panelform">
-							<ul class="adminformlist">
-								<?php foreach($this->form->getFieldset('user_options') as $field) :?>
-									<li><?php echo $field->label; ?>
-									<?php echo $field->input; ?></li>
-								<?php endforeach; ?>
-							</ul>
+						<fieldset class="form-vertical">
+							<?php foreach($this->form->getFieldset('user_options') as $field) :?>
+								<?php echo $this->form->renderField($field->getAttribute('name')); ?>
+							<?php endforeach; ?>
 						</fieldset>
 				<?php echo JHtml::_('sliders.end'); ?>
 
