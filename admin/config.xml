@@ -39,59 +39,60 @@
 			name="gratuit" type="radio"
 			label="COM_ADH_SETTINGS_PAIEMENT_GRATUIT_LABEL"
 			description="COM_ADH_SETTINGS_PAIEMENT_GRATUIT_DESC"
-			class="radiobox" default="0"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 		<!-- mode_paiement = 1 -->
 		<field
 			name="espece" type="radio"
 			label="COM_ADH_SETTINGS_PAIEMENT_ESPECE_LABEL"
 			description="COM_ADH_SETTINGS_PAIEMENT_ESPECE_DESC"
-			class="radiobox" default="0"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 		<!-- mode_paiement = 2 -->
 		<field
 			name="cheque" type="radio"
 			label="COM_ADH_SETTINGS_PAIEMENT_CHEQUE_LABEL"
 			description="COM_ADH_SETTINGS_PAIEMENT_CHEQUE_DESC"
-			class="radiobox" default="0"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 		<!-- mode_paiement = 3 -->
 		<field
 			name="virement" type="radio"
 			label="COM_ADH_SETTINGS_PAIEMENT_VIREMENT_LABEL"
 			description="COM_ADH_SETTINGS_PAIEMENT_VIREMENT_DESC"
-			class="radiobox" default="0"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 		<!-- mode_paiement = 4 -->
 		<field
 			name="paypal" type="radio"
 			label="COM_ADH_SETTINGS_PAIEMENT_PAYPAL_LABEL"
 			description="COM_ADH_SETTINGS_PAIEMENT_PAYPAL_DESC"
-			class="radiobox" default="0"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 	</fieldset>
 	<fieldset name="alertes" label="COM_ADH_SETTINGS_ALERTES_LABEL" description="COM_ADH_SETTINGS_ALERTES_DESC">
 		<field
 			name="alert_sendmail_on_inscription_cb" type="radio"
 			label="COM_ADH_SETTINGS_ALERTES_INSCRIPTION_CB_LABEL" description="COM_ADH_SETTINGS_ALERTES_CHECKBOX_DESC"
+			class="btn-group btn-group-yesno" default="0"
 		>
-			<option value="0">JNO</option>
 			<option value="1">JYES</option>
+			<option value="0">JNO</option>
 		</field>
 		<field
 			name="alert_sendmail_on_inscription_dest"	type="usergroup"
