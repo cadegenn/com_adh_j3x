@@ -107,7 +107,7 @@ class adhViewAdherent extends JViewLegacy
     protected function addDocStyle()
     {
         $doc = JFactory::getDocument();
-        $doc->addStyleSheet('components/com_adh/css/admin.css');
+        //$doc->addStyleSheet('components/com_adh/css/admin.css');
 		//$doc->addStyleSheet('components/com_adh/css/googlemap-v3.css');
     }
     
