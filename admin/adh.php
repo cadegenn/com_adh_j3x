@@ -18,8 +18,8 @@ if (!JFactory::getUser()->authorise('core.manage', 'com_tags'))
 }
 
 // Set some global property
-$document = JFactory::getDocument();
-$document->addStyleSheet( 'components/com_adh/css/com_adh.css' );
+//$document = JFactory::getDocument();
+//$document->addStyleSheet( 'components/com_adh/css/com_adh.css' );
 
 // Require helper file
 JLoader::register('ADHHelper', JPATH_COMPONENT . '/helpers/adh.php');
