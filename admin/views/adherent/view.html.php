@@ -92,7 +92,7 @@ class adhViewAdherent extends JViewLegacy
 		 * 
 		 */
         JToolBarHelper::title($isNew ? JText::_('COM_ADH').' : '.JText::_('COM_ADH_MANAGER_ADHERENT_NEW')
-                                     : JText::_('COM_ADH').' : '.JText::_('COM_ADH_MANAGER_ADHERENT_EDIT'));
+                                     : JText::_('COM_ADH').' : '.JText::_('COM_ADH_MANAGER_ADHERENT_EDIT') . '<small>(' . $this->item->id . ')</small>');
         JToolBarHelper::apply('adherent.apply');                                      // --> administrator/components/com_adh/controllers/adherent.php::save();
         JToolBarHelper::save('adherent.save');                                      // --> administrator/components/com_adh/controllers/adherent.php::save();
         JToolBarHelper::save2new('adherent.save2new');                                      // --> administrator/components/com_adh/controllers/adherent.php::save();
