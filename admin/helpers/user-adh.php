@@ -42,7 +42,7 @@
 defined('JPATH_PLATFORM') or die;
 
 //JLoader::register('AdhUserHelper', dirname(__FILE__) . '/user-adh-helper.php');
-JLoader::register('AdhCotiz', dirname(__FILE__) . DS . 'cotiz.php');
+JLoader::register('AdhCotiz', dirname(__FILE__) . '/cotiz.php');
 
 /**
  * User class.  Handles all application interaction with a user
