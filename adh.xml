@@ -97,6 +97,8 @@
 			<folder>helpers</folder>
 			<!-- libraries files section -->
 			<folder>libraries</folder>
+			<!-- layouts files section -->
+			<folder>layouts</folder>
 			<!-- rules files section -->
 			<folder>rules</folder>
 		</files>
