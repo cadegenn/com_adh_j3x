@@ -56,7 +56,7 @@ $params = JComponentHelper::getParams('com_adh');
 	<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'general')); ?>
 
 	<div class="form-horizontal">
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_ADH_ADHERENT', true).'<small>'.$this->item->id.'</small>'); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'general', JText::_('COM_ADH_ADHERENT', true).' <small>('.$this->item->id.')</small>'); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<?php echo JLayoutHelper::render('adh.edit.adherent', $this); // => JPATH_COMPONENT_ADMINISTRATOR . '/layouts/adh/edit/adherent.php' ?>
