@@ -23,6 +23,20 @@ class adhController extends JControllerLegacy
 		parent::display($cachable, $urlparams);
 		
 	}
+
+	/*
+	 * @brief	exdport()		export all data
+	 * @since	0.0.2
+	 */
+	public function export() {
+		$app		= JFactory::getApplication();
+		$component	= JRequest::getVar('option', '','get','string');
+		$model		= $this->getModel();
+		
+		$export_file = $model->export();
+		$app->enqueueMessage($component.' data exported at <a href='.$export_file.'>'.$export_file.'</a>');
+		$app->redirect(JRoute::_('index.php?option=com_adh'), false);
+	}
 }
 
 ?>
