@@ -140,7 +140,7 @@ class adhView1anomalie extends JViewLegacy
 	 */
 	public function addUserToolbar($name = "") {
 		//$toolbar = new JToolBar($name);
-		AdhToolBarHelper::delete('1anomalie.deleteUser', 'JDELETE', 'toolbar-'.$name, 'adminForm'.  ucwords($name));
+		AdhToolBarHelper::delete('1anomalie.deleteUser', 'JTOOLBAR_DELETE', 'toolbar-'.$name, 'adminForm'.  ucwords($name));
 		AdhToolBarHelper::apply('1anomalie.apply', 'JAPPLY', 'toolbar-'.$name, 'adminForm'.  ucwords($name));
 		//return $toolbar;
 	}
