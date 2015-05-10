@@ -1,3 +1,7 @@
-version 0.0.1 - date 
+version 0.0.2 - date 2015.05.09
+	admin
+	. adh (MVC) : added feature to export com_adh tables to sql file
+
+version 0.0.1 - date 2015.05.08
 	admin:
 	. adherent : edit page is Joomla 3x ready !

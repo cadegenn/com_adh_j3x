@@ -25,7 +25,7 @@ class adhController extends JControllerLegacy
 	}
 
 	/*
-	 * @brief	exdport()		export all data
+	 * @brief	export()		export all data
 	 * @since	0.0.2
 	 */
 	public function export() {
@@ -37,6 +37,21 @@ class adhController extends JControllerLegacy
 		$app->enqueueMessage($component.' data exported at <a href='.$export_file.'>'.$export_file.'</a>');
 		$app->redirect(JRoute::_('index.php?option=com_adh'), false);
 	}
+
+	/*
+	 * @brief	import()		import all data
+	 * @since	0.0.2
+	 */
+	public function import() {
+		$app		= JFactory::getApplication();
+		$component	= JRequest::getVar('option', '','get','string');
+		$model		= $this->getModel();
+		
+		$export_file = $model->import();
+		$app->enqueueMessage($component.' data exported at <a href='.$export_file.'>'.$export_file.'</a>');
+		$app->redirect(JRoute::_('index.php?option=com_adh'), false);
+	}
+
 }
 
 ?>

@@ -92,13 +92,25 @@ class adhViewadh extends JViewLegacy
 	 */
 	protected function addToolBar() 
 	{
+		$bar = JToolBar::getInstance('toolbar');
 		// voir d'autres boutons dans /administrator/includes/toolbar.php
 		JToolBarHelper::title(JText::_('COM_ADH'), 'adh');
-		AdhToolBarHelper::link('adherent-add', JText::_('COM_ADH_MANAGER_ADHERENT_NEW'), 'index.php?option=com_adh&view=adherent&layout=edit');
-		AdhToolBarHelper::link('group-add', JText::_('COM_ADH_MANAGER_GROUPE_NEW'), 'index.php?option=com_adh&view=groupe&layout=edit');
-		AdhToolBarHelper::link('cotisation-add', JText::_('COM_ADH_MANAGER_COTISATION_NEW'), 'index.php?option=com_adh&view=cotisation&layout=edit');
+		AdhToolBarHelper::link('new', JText::_('COM_ADH_MANAGER_ADHERENT_NEW'), 'index.php?option=com_adh&view=adherent&layout=edit');
+		AdhToolBarHelper::link('new', JText::_('COM_ADH_MANAGER_GROUPE_NEW'), 'index.php?option=com_adh&view=groupe&layout=edit');
+		AdhToolBarHelper::link('new', JText::_('COM_ADH_MANAGER_COTISATION_NEW'), 'index.php?option=com_adh&view=cotisation&layout=edit');
 		JToolBarHelper::divider();
-		AdhToolBarHelper::link('export', JText::_('JTOOLBAR_EXPORT'), 'index.php?option=com_adh&task=export');
+		//AdhToolBarHelper::link('download', JText::_('JTOOLBAR_IMPORT'), 'index.php?option=com_adh&task=import');
+		//if ($user->authorise('core.create', 'com_media'))
+		//{
+			// Instantiate a new JLayoutFile instance and render the layout
+			$layout = new JLayoutFile('toolbar.uploadmedia', JPATH_ADMINISTRATOR.'/components/com_media/layouts');
+
+			//$bar->appendButton('Custom', $layout->render(array()), 'upload');
+			$bar->appendButton('Custom', $layout->render(array()), 'download');
+			//JToolbarHelper::divider();
+		//}
+
+		AdhToolBarHelper::link('upload', JText::_('JTOOLBAR_EXPORT'), 'index.php?option=com_adh&task=export');
 		JToolBarHelper::divider();
 		JToolBarHelper::preferences('com_adh');
 	}
