@@ -229,7 +229,7 @@ class adhModelAdh extends JModelAdmin
 		echo("mysql ".$config->get('db')." -h ".$config->get('host')." --password=".$config->get('password')." -u ".$config->get('user') . " < ".$filename);
 		passthru("sed -i.bak -e 's/#__/".$config->get('dbprefix')."/g' ".$filename);
 		passthru("mysql ".$config->get('db')." -h ".$config->get('host')." --password=".$config->get('password')." -u ".$config->get('user') . " < ".$filename);
-		die();
+		//die();
 	}
  		
 }
