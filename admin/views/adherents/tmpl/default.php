@@ -64,7 +64,7 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 				<?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
 			</div>
 		<?php else : ?>
-			<table class="table table-striped" id="adherentList">
+		<table class="table table-striped table-hover" id="adherentList">
 		<thead><tr>
 			<th width="20">
 				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->items); ?>);" />
@@ -94,7 +94,7 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 				<?php echo JHtml::_('grid.sort', 'COM_ADH_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 			</th>
 		</tr></thead>
-		<tfoot><?php echo $this->loadTemplate('foot');?></tfoot>
+		<tfoot><?php //echo $this->loadTemplate('foot');?></tfoot>
 		<tbody><?php echo $this->loadTemplate('body');?></tbody>
 	</table>
 		<?php endif; ?>
@@ -109,7 +109,7 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 	</div>
 </form>
 
-<pre>
+<pre style="clear:both;">
     <?php //echo var_dump($_POST); ?>
     <?php //echo var_dump($_GET); ?>
     <?php //echo var_dump($this); ?>
