@@ -181,7 +181,7 @@ class AdhUser extends JObject
 	 */
 	public static function getTable($type = null, $prefix = 'adhTable')
 	{
-		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . DS . "tables");
+		JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . "/tables");
 		static $tabletype;
 
 		// Set the default tabletype;
