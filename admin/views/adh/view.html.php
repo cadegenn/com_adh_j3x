@@ -72,7 +72,8 @@ class adhViewadh extends JViewLegacy
 		$this->pagination = $pagination;
  		$this->component = $this->get('Component');
 		$this->manifest = json_decode($this->component->manifest_cache);
-		//$this->adherents = $adherents;
+		$this->session = JFactory::getSession();
+		$this->config = JComponentHelper::getParams('com_media');
 
 		// Set the toolbar
 		$this->addToolBar();
@@ -103,7 +104,7 @@ class adhViewadh extends JViewLegacy
 		//if ($user->authorise('core.create', 'com_media'))
 		//{
 			// Instantiate a new JLayoutFile instance and render the layout
-			$layout = new JLayoutFile('toolbar.uploadmedia', JPATH_ADMINISTRATOR.'/components/com_media/layouts');
+			$layout = new JLayoutFile('toolbar.import');
 
 			//$bar->appendButton('Custom', $layout->render(array()), 'upload');
 			$bar->appendButton('Custom', $layout->render(array()), 'download');

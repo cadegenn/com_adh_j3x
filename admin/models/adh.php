@@ -215,4 +215,21 @@ class adhModelAdh extends JModelAdmin
 		return $url;
 	}
  		
+	/**
+	 * @brief	import()	import sql data
+	 * @return (string) file path and file name of sql file
+	 * @since 0.0.47
+	 */
+	public function import($filename = "") {
+		$config = JFactory::getConfig();
+		//echo("<pre>"); var_dump($config); echo("</pre>");
+		//echo("<pre>"); var_dump($db); echo("</pre>");
+		echo("sed -i.bak -e 's/#__/".$config->get('dbprefix')."/g' ".$filename);
+		echo ("<br />");
+		echo("mysql ".$config->get('db')." -h ".$config->get('host')." --password=".$config->get('password')." -u ".$config->get('user') . " < ".$filename);
+		passthru("sed -i.bak -e 's/#__/".$config->get('dbprefix')."/g' ".$filename);
+		passthru("mysql ".$config->get('db')." -h ".$config->get('host')." --password=".$config->get('password')." -u ".$config->get('user') . " < ".$filename);
+		die();
+	}
+ 		
 }

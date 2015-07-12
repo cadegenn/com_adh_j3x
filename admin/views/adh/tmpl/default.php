@@ -34,8 +34,29 @@
 defined('_JEXEC') or die('Restricted Access');
  
 // load tooltip behavior
-JHtml::_('behavior.tooltip');
+//JHtml::_('behavior.tooltip');
 ?>
+
+		<?php
+		/*
+		 *	upload form taken from com_media/views/media/tmpl/default.php
+		 */
+		?>
+		<?php //if ($user->authorise('core.create', 'com_adh')):?>
+		<!-- File Upload Form -->
+		<div id="collapseUpload" class="collapse">
+			<form action="<?php echo JUri::base(); ?>index.php?option=com_adh&amp;task=upload&amp;tmpl=component&amp;<?php echo $this->session->getName() . '=' . $this->session->getId(); ?>&amp;<?php echo JSession::getFormToken();?>=1&amp;format=html" id="uploadForm" class="form-inline" name="uploadForm" method="post" enctype="multipart/form-data">
+				<div id="uploadform">
+					<fieldset id="upload-noflash" class="actions">
+							<label for="upload-file" class="control-label"><?php echo JText::_('COM_MEDIA_UPLOAD_FILE'); ?></label>
+								<input type="file" id="upload-file" name="Filedata[]" multiple /> <button class="btn btn-primary" id="upload-submit"><i class="icon-upload icon-white"></i> <?php echo JText::_('COM_MEDIA_START_UPLOAD'); ?></button>
+								<p class="help-block"><?php echo $this->config->get('upload_maxsize') == '0' ? JText::_('COM_MEDIA_UPLOAD_FILES_NOLIMIT') : JText::sprintf('COM_MEDIA_UPLOAD_FILES', $this->config->get('upload_maxsize')); ?></p>
+					</fieldset>
+					<?php JFactory::getSession()->set('com_adh.return_url', 'index.php?option=com_adh'); ?>
+				</div>
+			</form>
+		</div>
+		<?php //endif;?>
 
 
 <?php echo $this->loadTemplate('dashboard');?>
@@ -44,5 +65,5 @@ JHtml::_('behavior.tooltip');
 
 <p align="center"><?php echo $this->component->name; ?> - <?php echo $this->manifest->version; ?></p>
 <?php if (JDEBUG) : ?>
-	<pre><?php var_dump($this); ?></pre>
+	<pre><?php //var_dump($this); ?></pre>
 <?php endif; ?>
