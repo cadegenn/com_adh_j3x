@@ -34,11 +34,14 @@
 defined('_JEXEC') or die('Restricted Access');
 JLoader::register('AGrid', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/html/agrid.php');
 
-$user           = JFactory::getUser();
-$userId         = $user->get('id');
-//$listOrder      = $this->escape($this->published->get('list.ordering'));
-//$listDirn       = $this->escape($this->published->get('list.direction'));
-//$saveOrder      = $listOrder == 'a.ordering';
+$app		= JFactory::getApplication();
+$user		= JFactory::getUser();
+$userId		= $user->get('id');
+$listOrder	= $this->escape($this->state->get('list.ordering'));
+$listDirn	= $this->escape($this->state->get('list.direction'));
+$archived	= $this->state->get('filter.published') == 2 ? true : false;
+$trashed	= $this->state->get('filter.published') == -2 ? true : false;
+//$saveOrder	= $listOrder == 'a.ordering';
 ?>
 
 <?php foreach($this->items as $i => $item):
@@ -53,6 +56,24 @@ $userId         = $user->get('id');
 	<tr class="row<?php echo $i % 2; ?>">
         <td>
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+		</td>
+		<td class="center">
+			<div class="btn-group">
+				<?php echo JHtml::_('jgrid.published', $item->published, $i, 'adherents.', $canChange, 'cb', '', ''); ?>
+				<?php //		+-> /libraries/cms/html/jgrid.php : published() ?>
+				<?php //		+-> controllers/adherents.php : published() ?>
+				<?php
+				// Create dropdown items
+				$action = $archived ? 'unarchive' : 'archive';
+				JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'adherents');
+
+				$action = $trashed ? 'untrash' : 'trash';
+				JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'adherents');
+
+				// Render dropdown list
+				echo JHtml::_('actionsdropdown.render', $this->escape($item->nom));
+				?>
+			</div>
 		</td>
 		<td>
 			<?php 
@@ -79,31 +100,27 @@ $userId         = $user->get('id');
 			<!--<small class="pull-right">(<?php echo $item->date_naissance; ?>)</small>-->
 			<small>(<?php echo $item->date_naissance; ?>)</small>
 			<?php endif; ?>
-		</td>
-		<td>
+			<br />
 			<a href='mailto:<?php echo $item->email; ?>'><?php echo $item->email; ?></a>
 		</td>
-		<td class="right">
+		<!--<td>
+			<a href='mailto:<?php //echo $item->email; ?>'><?php //echo $item->email; ?></a>
+		</td>-->
+		<td class="nowrap hidden-phone text-right">
 			<?php echo $item->cp; ?>
 		</td>
-		<td>
+		<td class="nowrap hidden-phone">
 			<?php echo $item->ville; ?>
 		</td>
-		<td>
+		<td class="nowrap hidden-phone">
 			<?php echo $item->pays; ?>
-		</td>
-		<td class="center adherent_status">
-			<?php //echo $item->visible; ?>
-			<?php echo JHtml::_('jgrid.published', $item->published, $i, 'adherents.', $canChange, 'cb', '', ''); ?>
-			<?php //		+-> /libraries/joomla/html/html/jgrid.php : published() ?>
-			<?php //		+-> controllers/adherents.php : published() ?>
 		</td>
 		<!--<td class="center">
 			<?php //echo JHtml::_('jgrid.published', $item->payee, $i, 'adherents.', $canChange, 'cb', $item->date_debut_cotiz, $item->date_fin_cotiz); ?>
 			<?php //		+-> /libraries/joomla/html/html/jgrid.php : published() ?>
 			<?php //		+-> controllers/adherents.php : published() ?>
 		</td>-->
-		<td class="right">
+		<td class="nowrap hidden-phone text-right">
 			<?php echo $item->id; ?>
 		</td>
 	</tr>

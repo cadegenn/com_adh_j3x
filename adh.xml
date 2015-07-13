@@ -10,7 +10,7 @@
 	<copyright>Copyright (C) 2015 - 2015 Volontaires Pour la Nature</copyright>
 	<license>AGPL v3</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.3</version>
+	<version>0.0.4</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_ADH_COMPONENT_DESCRIPTION</description>
 	
@@ -75,6 +75,7 @@
 			<!-- Admin Main File Copy Section -->
 			<filename>index.html</filename>
 			<filename>adh.php</filename>
+			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<!-- css repository -->

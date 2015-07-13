@@ -39,11 +39,14 @@ JHtml::_('behavior.tooltip');
 // Import library dependencies
 JLoader::register('ADHControls', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/controls.php');
 
-$user           = JFactory::getUser();
-$userId         = $user->get('id');
-$listOrder      = $this->escape($this->state->get('list.ordering'));
-$listDirn       = $this->escape($this->state->get('list.direction'));
-//$saveOrder      = $listOrder == 'a.ordering';
+$app		= JFactory::getApplication();
+$user		= JFactory::getUser();
+$userId		= $user->get('id');
+$listOrder	= $this->escape($this->state->get('list.ordering'));
+$listDirn	= $this->escape($this->state->get('list.direction'));
+$archived	= $this->state->get('filter.published') == 2 ? true : false;
+$trashed	= $this->state->get('filter.published') == -2 ? true : false;
+//$saveOrder	= $listOrder == 'a.ordering';
 ?>
 
 <form action="<?php echo JRoute::_('index.php?option=com_adh&view=adherents'); ?>" method="post" name="adminForm" id="adminForm">
@@ -66,32 +69,32 @@ $listDirn       = $this->escape($this->state->get('list.direction'));
 		<?php else : ?>
 		<table class="table table-striped table-hover" id="adherentList">
 		<thead><tr>
-			<th width="20">
-				<input type="checkbox" name="toggle" value="" onclick="checkAll(<?php echo count($this->items); ?>);" />
-			</th>			
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_NOMPRENOM_LABEL', 'LOWER(a.nom)', $listDirn, $listOrder); ?>
+			<th width="1%" class="center">
+				<?php echo JHtml::_('grid.checkall'); ?>
+			</th>
+			<th width="1%" style="min-width:55px" class="nowrap center">
+				<?php echo JHtml::_('searchtools.sort', 'JSTATUS', 'a.published', $listDirn, $listOrder); ?>
 			</th>
 			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_EMAIL_LABEL', 'a.email', $listDirn, $listOrder); ?>
-			</th>
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_CP_LABEL', 'cp', $listDirn, $listOrder); ?>
-			</th>
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_VILLE_LABEL', 'LOWER(ville)', $listDirn, $listOrder); ?>
-			</th>
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_PAYS_LABEL', 'LOWER(pays)', $listDirn, $listOrder); ?>
-			</th>
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_STATUS_LABEL', 'a.published', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('searchtools.sort', 'COM_ADH_NOMPRENOM_LABEL', 'LOWER(a.nom)', $listDirn, $listOrder); ?>
 			</th>
 			<!--<th>
-				<?php //echo JHtml::_('grid.sort', 'COM_ADH_PAYEE_LABEL', 'a.payee', $listDirn, $listOrder); ?>
+				<?php //echo JHtml::_('searchtools.sort', 'COM_ADH_EMAIL_LABEL', 'a.email', $listDirn, $listOrder); ?>
 			</th>-->
-			<th>
-				<?php echo JHtml::_('grid.sort', 'COM_ADH_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
+			<th width="10%" class="nowrap hidden-phone">
+				<?php echo JHtml::_('searchtools.sort', 'COM_ADH_CP_LABEL', 'cp', $listDirn, $listOrder); ?>
+			</th>
+			<th width="10%" class="nowrap hidden-phone">
+				<?php echo JHtml::_('searchtools.sort', 'COM_ADH_VILLE_LABEL', 'LOWER(ville)', $listDirn, $listOrder); ?>
+			</th>
+			<th width="10%" class="nowrap hidden-phone">
+				<?php echo JHtml::_('searchtools.sort', 'COM_ADH_PAYS_LABEL', 'LOWER(pays)', $listDirn, $listOrder); ?>
+			</th>
+			<!--<th>
+				<?php //echo JHtml::_('searchtools.sort', 'COM_ADH_PAYEE_LABEL', 'a.payee', $listDirn, $listOrder); ?>
+			</th>-->
+			<th width="1%" class="nowrap hidden-phone">
+				<?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 			</th>
 		</tr></thead>
 		<tfoot><?php //echo $this->loadTemplate('foot');?></tfoot>

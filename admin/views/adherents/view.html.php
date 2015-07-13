@@ -85,18 +85,41 @@ class adhViewAdherents extends JViewLegacy
 	 */
 	protected function addToolBar() 
 	{
+		$canDo = JHelperContent::getActions('com_adh', 'adherent', $this->state->get('filter.adherent_id'));
+		$user  = JFactory::getUser();
+
 		// voir d'autres boutons dans /administrator/includes/toolbar.php
 		JToolBarHelper::title(JText::_('COM_ADH').' : '.JText::_('COM_ADH_SUBMENU_ADHERENTS'), 'adh');
-		JToolBarHelper::addNew('adherent.add');
-		JToolBarHelper::editList('adherent.edit');
+		if ($canDo->get('core.create') || (count($user->getAuthorisedCategories('com_adh', 'core.create'))) > 0 )
+		{
+			JToolBarHelper::addNew('adherent.add');
+		}
+		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own')))
+		{
+			JToolBarHelper::editList('adherent.edit');
+		}
 		JToolBarHelper::divider();
-		JToolBarHelper::publishList('adherents.publish');
-		JToolBarHelper::unpublishList('adherents.unpublish');
-		JToolBarHelper::divider();
-		JToolBarHelper::archiveList('adherents.archive');
-		JToolBarHelper::deleteList(JText::_('COM_ADH_AREYOUSURE'),'adherents.delete');
-		JToolBarHelper::divider();
-		JToolBarHelper::preferences('com_adh');
+		if ($canDo->get('core.edit.state'))
+		{
+			JToolBarHelper::publishList('adherents.publish');
+			JToolBarHelper::unpublishList('adherents.unpublish');
+			JToolBarHelper::divider();
+			JToolBarHelper::archiveList('adherents.archive');
+		}
+		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
+		{
+			JToolBarHelper::deleteList(JText::_('COM_ADH_AREYOUSURE'),'adherents.delete');
+		}
+		elseif ($canDo->get('core.edit.state'))
+		{
+			JToolbarHelper::trash('articles.trash');
+		}
+
+		if ($user->authorise('core.admin', 'com_content') || $user->authorise('core.options', 'com_content'))
+		{
+			JToolBarHelper::divider();
+			JToolBarHelper::preferences('com_adh');
+		}
 	}
 	
 	/**
