@@ -129,8 +129,8 @@ class adhModelAdherents extends JModelList
 		}
 				
 		// filter by ville
-		$ville = $this->getState('ville.search');
-		if (!empty($ville)) {
+		$ville = $this->getState('filter.ville');
+		if ($ville != '*') {
 			$query->where('a.ville COLLATE utf8_unicode_ci = "'.$ville.'"');
 		}
 				
@@ -192,10 +192,8 @@ class adhModelAdherents extends JModelList
 			$this->setState('cp.state', $state);
 
 			// Load the filter state.
-			$search = $this->getUserStateFromRequest($this->context.'.ville.search', 'ville_search');
-			$this->setState('ville.search', $search);
-			$state = $this->getUserStateFromRequest($this->context.'.ville.state', 'ville_state', '', 'string');
-			$this->setState('ville.state', $state);
+			$ville = $this->getUserStateFromRequest($this->context . '.filter.ville', 'filter_ville', '');
+			$this->setState('filter.ville', $ville);
 
 			// Load the filter state.
 			$pays = $this->getUserStateFromRequest($this->context . '.filter.pays', 'filter_pays', '');

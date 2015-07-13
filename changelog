@@ -2,6 +2,7 @@ version 0.0.4 - date
 	admin
 	. adherent (MVC) : filter by publish state ok
 	. adherent (MVC) : filter by country is ok
+	. adherent (MVC) : filter by town is ok
 
 version 0.0.3 - date 2015.07.12
 	admin

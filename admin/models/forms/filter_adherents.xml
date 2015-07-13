@@ -48,13 +48,13 @@
 			<option value="">JOPTION_SELECT_ACCESS</option>
 		</field>
 		<field
-			name="author_id"
-			type="author"
-			label="COM_ADH_FILTER_AUTHOR"
-			description="COM_ADH_FILTER_AUTHOR_DESC"
+			name="ville"
+			type="ville"
+			label="COM_ADH_VILLE_LABEL"
+			description="COM_ADH_VILLE_DESC"
 			onchange="this.form.submit();"
 			>
-			<option value="">JOPTION_SELECT_AUTHOR</option>
+			<option value="*">COM_ADH_SELECT_VILLE</option>
 		</field>
 		<field
 			name="pays"
