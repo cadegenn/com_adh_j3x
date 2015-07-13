@@ -109,6 +109,18 @@ class adhModelAdherents extends JModelList
 			$query->where('(a.nom COLLATE utf8_unicode_ci LIKE "%'.$search.'%" OR a.prenom COLLATE utf8_unicode_ci LIKE "%'.$search.'%" OR a.personne_morale COLLATE utf8_unicode_ci LIKE "%'.$search.'%")');
 		}
 		
+		// Filter by published state
+		$published = $this->getState('filter.published');
+
+		if (is_numeric($published))
+		{
+			$query->where('a.published = ' . (int) $published);
+		}
+		elseif ($published === '')
+		{
+			$query->where('(a.published = 0 OR a.published = 1)');
+		}
+				
 		// filter by département
 		$cp = $this->getState('cp.search');
 		if (!empty($cp)) {
@@ -154,41 +166,45 @@ class adhModelAdherents extends JModelList
 	*/
 	protected function populateState($ordering = null, $direction = null)
 	{
-		   // Initialise variables.
-		   $app = JFactory::getApplication('administrator');
+			// Initialise variables.
+			$app = JFactory::getApplication('administrator');
 
-		   // Load the filter state.
-		   $search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
-		   $this->setState('filter.search', $search);
-		   $state = $this->getUserStateFromRequest($this->context.'.filter.state', 'filter_state', '', 'string');
-		   $this->setState('filter.state', $state);
+			// Load the filter state.
+			$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
+			$this->setState('filter.search', $search);
+			$state = $this->getUserStateFromRequest($this->context.'.filter.state', 'filter_state', '', 'string');
+			$this->setState('filter.state', $state);
 
-		   // Load the filter state.
-		   $search = $this->getUserStateFromRequest($this->context.'.letter.search', 'letter_search');
-		   $this->setState('letter.search', $search);
-		   $state = $this->getUserStateFromRequest($this->context.'.letter.state', 'letter_state', '', 'string');
-		   $this->setState('letter.state', $state);
+			// Load the filter state.
+			$search = $this->getUserStateFromRequest($this->context.'.letter.search', 'letter_search');
+			$this->setState('letter.search', $search);
+			$state = $this->getUserStateFromRequest($this->context.'.letter.state', 'letter_state', '', 'string');
+			$this->setState('letter.state', $state);
 
-		   // Load the filter state.
-		   $search = $this->getUserStateFromRequest($this->context.'.cp.search', 'cp_search');
-		   $this->setState('cp.search', $search);
-		   $state = $this->getUserStateFromRequest($this->context.'.cp.state', 'cp_state', '', 'string');
-		   $this->setState('cp.state', $state);
+			// Load the filter state.
+			$published = $this->getUserStateFromRequest($this->context . '.filter.published', 'filter_published', '');
+			$this->setState('filter.published', $published);
 
-		   // Load the filter state.
-		   $search = $this->getUserStateFromRequest($this->context.'.ville.search', 'ville_search');
-		   $this->setState('ville.search', $search);
-		   $state = $this->getUserStateFromRequest($this->context.'.ville.state', 'ville_state', '', 'string');
-		   $this->setState('ville.state', $state);
+			// Load the filter state.
+			$search = $this->getUserStateFromRequest($this->context.'.cp.search', 'cp_search');
+			$this->setState('cp.search', $search);
+			$state = $this->getUserStateFromRequest($this->context.'.cp.state', 'cp_state', '', 'string');
+			$this->setState('cp.state', $state);
 
-		   // Load the filter state.
-		   $search = $this->getUserStateFromRequest($this->context.'.pays.search', 'pays_search');
-		   $this->setState('pays.search', $search);
-		   $state = $this->getUserStateFromRequest($this->context.'.pays.state', 'pays_state', '', 'string');
-		   $this->setState('pays.state', $state);
+			// Load the filter state.
+			$search = $this->getUserStateFromRequest($this->context.'.ville.search', 'ville_search');
+			$this->setState('ville.search', $search);
+			$state = $this->getUserStateFromRequest($this->context.'.ville.state', 'ville_state', '', 'string');
+			$this->setState('ville.state', $state);
 
-		   // List state information.
-		   parent::populateState('a.nom, a.prenom', 'asc');
+			// Load the filter state.
+			$search = $this->getUserStateFromRequest($this->context.'.pays.search', 'pays_search');
+			$this->setState('pays.search', $search);
+			$state = $this->getUserStateFromRequest($this->context.'.pays.state', 'pays_state', '', 'string');
+			$this->setState('pays.state', $state);
+
+			// List state information.
+			parent::populateState('a.nom, a.prenom', 'asc');
 	}
 
 }
