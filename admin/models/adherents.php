@@ -135,8 +135,8 @@ class adhModelAdherents extends JModelList
 		}
 				
 		// filter by pays
-		$pays = $this->getState('pays.search');
-		if (!empty($pays)) {
+		$pays = $this->getState('filter.pays');
+		if ($pays != '*') {
 			$query->where('a.pays COLLATE utf8_unicode_ci = "'.$pays.'"');
 		}
 				
@@ -198,10 +198,8 @@ class adhModelAdherents extends JModelList
 			$this->setState('ville.state', $state);
 
 			// Load the filter state.
-			$search = $this->getUserStateFromRequest($this->context.'.pays.search', 'pays_search');
-			$this->setState('pays.search', $search);
-			$state = $this->getUserStateFromRequest($this->context.'.pays.state', 'pays_state', '', 'string');
-			$this->setState('pays.state', $state);
+			$pays = $this->getUserStateFromRequest($this->context . '.filter.pays', 'filter_pays', '');
+			$this->setState('filter.pays', $pays);
 
 			// List state information.
 			parent::populateState('a.nom, a.prenom', 'asc');
