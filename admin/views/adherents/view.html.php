@@ -105,17 +105,14 @@ class adhViewAdherents extends JViewLegacy
 			JToolBarHelper::unpublishList('adherents.unpublish');
 			JToolBarHelper::divider();
 			JToolBarHelper::archiveList('adherents.archive');
+			JToolbarHelper::trash('articles.trash');
 		}
-		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
+		if ($canDo->get('core.delete'))
 		{
 			JToolBarHelper::deleteList(JText::_('COM_ADH_AREYOUSURE'),'adherents.delete');
 		}
-		elseif ($canDo->get('core.edit.state'))
-		{
-			JToolbarHelper::trash('articles.trash');
-		}
 
-		if ($user->authorise('core.admin', 'com_content') || $user->authorise('core.options', 'com_content'))
+		if ($user->authorise('core.admin', 'com_adh') || $user->authorise('core.options', 'com_adh'))
 		{
 			JToolBarHelper::divider();
 			JToolBarHelper::preferences('com_adh');
